@@ -78,7 +78,7 @@ class APIRequestHandler(object):
                 #print "Savinf file for indicator : " + argv[ idx + 1]
                 f = open(listImportFolder + argv[idx+1] + '_iSight_TIS.txt', 'w+')
                 for indicator in indicators[idx]:                    
-                    f.write(indicator+"\n")
+                    f.write(unicode(indicator.encode("utf-8")+"\n" , errors='ignore'))
                 f.close()
                 idx+=1
             fLog.write( datetime.datetime.now().strftime("%d-%m-%Y, %H:%M:%S") + " - Download  for " + str(argv[1:len(argv)]) + " succeeded." + "\n")
